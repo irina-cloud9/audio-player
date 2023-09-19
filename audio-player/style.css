@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper__container {
+  width: 100vw;
+  height: calc(100vh - 65px);
+  position: relative;
+}
+
+.image__beyonce {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: brightness(0.3);
+  z-index: -2;
+}
+
+/* большая обложка проигрывателя с картинкой*/
+
+.wrapper__container__pleer {
+  max-width: 450px;
+  width: 100%;
+  height: 530px;
+  background: #fff;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 5px 5px #065859;
+}
+
+.image__pleer {
+  max-width: 450px;
+  width: 100%;
+  height: 320px;
+}
+
+.beyonce {
+  width: 100%;
+}
+
+/* обложка плеера*/
+
+.aaaa {
+  background: #a39a99;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.wrapper__pleer {
+  /* background: #666;
+  width: 100%;
+  height: 100%; */
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding-top: 30px;
+}
+
+.wrapper__play {
+  max-width: 70px;
+  width: 100%;
+  height: 70px;
+}
+
+.image__play {
+  width: 100%;
+}
+
+.wrapper__avtor__song {
+  max-width: 200px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.avtor__wrapper {
+  max-width: 190px;
+  width: 100%;
+  height: 35px;
+}
+
+.avtor {
+  color: #780606;
+  font-size: 40px;
+  text-align: center;
+}
+
+.wrapper__song {
+  font-size: 20px;
+  color: #173536;
+  text-align: center;
+}
+
+.wrapper__button__shooter {
+  max-width: 40px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper__image__levo,
+.wrapper__image__pravo {
+  max-width: 30px;
+  width: 100%;
+  height: 35px;
+}
+
+.image__button {
+  width: 100%;
+}
+
+/* время песни */
+
+.wrapper__line__pleer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 450px;
+  width: 100%;
+  height: 60px;
+  /* background: #780606; */
+}
+
+.time__song {
+  max-width: 30px;
+  width: 100%;
+  height: 30px;
+  padding-left: 346px;
+  color: #780606;
+  font-weight: 600;
+}
+
+.time__line {
+  width: 300px;
+  border-top: 5px solid #fff;
+  margin: 0 auto;
+  /* border-radius: 18.7%; */
+}
+
+.time {
+  max-width: 30px;
+  width: 100%;
+  height: 30px;
+  padding-left: 73px;
+  color: #780606;
+  font-weight: 400;
+}
+
+/* Footer */
+.footer__container {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding: 21px 60px;
+  background: #693e3a;
+}
+
+.footer__wrapper {
+  width: 100%;
+  height: 20px;
+  /* background: #780606; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.username {
+  max-width: 40px;
+  height: 10px;
+  /* color: #173536; */
+}
+
+.github__ira {
+  font-weight: 800;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.github__ira:hover {
+  color: #fff;
+}
+
+.year {
+  font-weight: 800;
+  color: black;
+  font-size: 20px;
+}
