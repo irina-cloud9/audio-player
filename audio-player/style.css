@@ -79,8 +79,25 @@
   height: 70px;
 }
 
-.image__play {
+.image__play,
+.image__pause {
   width: 100%;
+}
+
+.pause .image__play {
+  display: block;
+}
+
+.image__play {
+  display: none;
+}
+
+.pause .image__pause {
+  display: none;
+}
+
+.image__pause {
+  display: block;
 }
 
 .wrapper__avtor__song {
@@ -154,7 +171,18 @@
   width: 300px;
   border-top: 5px solid #fff;
   margin: 0 auto;
+  position: relative;
   /* border-radius: 18.7%; */
+}
+
+.line__point {
+  position: absolute;
+  max-width: 12px;
+  width: 100%;
+  height: 12px;
+  border-radius: 10px;
+  background: #780606;
+  bottom: -3.2px;
 }
 
 .time {
@@ -174,12 +202,12 @@
   justify-content: space-between;
   padding-top: 22px;
   padding: 21px 60px;
-  background: #693e3a;
+  background: #065859;
 }
 
 .footer__wrapper {
   width: 100%;
-  height: 20px;
+  height: 15px;
   /* background: #780606; */
   display: flex;
   justify-content: space-between;
@@ -196,6 +224,11 @@
   color: black;
   text-decoration: none;
   font-size: 20px;
+}
+
+.github__ira:active {
+  border-radius: 17%;
+  background: #a39a99;
 }
 
 .github__ira:hover {
