@@ -7,9 +7,25 @@ let isPlay = false;
 const imageBackground = document.querySelector(".image__beyonce");
 const imageTrack = document.querySelector(".beyonce");
 const imageList = ["./image/1.png", "./image/2.png"];
-const timeLine = document.querySelector(".time__line ");
+const timeLine = document.querySelector(".time__line");
 let timeLineInterval;
 audio.src = trackList[playNum];
+
+function timeCalc(sec) {
+  const minutes = parseInt(sec / 60);
+  const seconds = Math.round(sec % 60);
+
+  return `${minutes}:${seconds > 9 ? seconds : "0" + seconds}`;
+}
+
+const linePoint = document.querySelector(".line__point");
+const timeSong = document.querySelector(".time__song");
+const timeCurrent = document.querySelector(".time");
+
+setTimeout(() => {
+  timeSong.innerHTML = timeCalc(audio.duration);
+  timeCurrent.innerHTML = timeCalc(0);
+}, 100);
 
 function playAudio() {
   if (isPlay) {
@@ -24,6 +40,7 @@ function playAudio() {
     isPlay = true;
     timeLineInterval = setInterval(() => {
       updateProgress();
+      timeCurrent.innerHTML = timeCalc(audio.currentTime);
     }, 1000);
   }
 }
@@ -46,6 +63,10 @@ function playNext() {
   audio.currentTime = 0;
   imageTrack.src = imageList[playNum];
   imageBackground.src = imageList[playNum];
+  setTimeout(() => {
+    timeSong.innerHTML = timeCalc(audio.duration);
+    timeCurrent.innerHTML = timeCalc(0);
+  }, 100);
   playAudio();
 }
 
@@ -60,6 +81,10 @@ function playPrev() {
   audio.currentTime = 0;
   imageTrack.src = imageList[playNum];
   imageBackground.src = imageList[playNum];
+  setTimeout(() => {
+    timeSong.innerHTML = timeCalc(audio.duration);
+    timeCurrent.innerHTML = timeCalc(0);
+  }, 100);
   playAudio();
 }
 
@@ -77,7 +102,31 @@ playPrevButton.addEventListener("click", () => {
 function updateProgress() {
   console.log(audio.currentTime, audio.duration);
   const progress = audio.currentTime / audio.duration;
-  timeLine.style.paddingLeft = Math.floor(progress * 1000) / 10 + "%";
+  linePoint.style.left = (Math.floor(progress * 1000) / 10) * 0.97 + "%";
 }
 
-function updateCurrentPosition(event) {}
+// function updateCurrentPosition(event) {
+//   const newProgress =
+//     (event.clientX - timeLine.offsetLeft) / timeLine.clientWidth;
+//   console.log(
+//     event.clientX,
+//     timeLine.offsetLeft,
+//     timeLine.clientWidth,
+//     newProgress
+//   );
+//   linePoint.style.left = (Math.floor(newProgress * 1000) / 10) * 0.97 + "%";
+//   audio.currentTime = newProgress * audio.duration;
+// }
+
+// linePoint.addEventListener("mousedown", () => {
+//   console.log("mousedown");
+// });
+// linePoint.addEventListener("mouseup", () => {
+//   console.log("mouseup");
+// });
+// timeLine.addEventListener("mousemove", () => {
+//   console.log("mousemove");
+// });
+// timeLine.addEventListener("click", (event) => {
+//   updateCurrentPosition(event);
+// });
