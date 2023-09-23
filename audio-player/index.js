@@ -100,7 +100,6 @@ playPrevButton.addEventListener("click", () => {
 });
 
 function updateProgress() {
-  console.log(audio.currentTime, audio.duration);
   const progress = audio.currentTime / audio.duration;
   linePoint.style.left = (Math.floor(progress * 1000) / 10) * 0.97 + "%";
 }
