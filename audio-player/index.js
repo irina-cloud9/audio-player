@@ -4,6 +4,9 @@ const playButton = document.querySelector(".wrapper__play");
 let playNum = 0;
 const trackList = ["./audio/beyonce.mp3", "./audio/dontstartnow.mp3"];
 let isPlay = false;
+const imageBackground = document.querySelector(".image__beyonce");
+const imageTrack = document.querySelector(".beyonce");
+const imageList = ["./image/1.png", "./image/2.png"];
 
 function playAudio() {
   if (isPlay) {
@@ -33,7 +36,8 @@ function playNext() {
   } else {
     playNum = playNum + 1;
   }
-
+  imageTrack.src = imageList[playNum];
+  imageBackground.src = imageList[playNum];
   playAudio();
 }
 
@@ -44,7 +48,8 @@ function playPrev() {
   } else {
     playNum = playNum - 1;
   }
-
+  imageTrack.src = imageList[playNum];
+  imageBackground.src = imageList[playNum];
   playAudio();
 }
 
