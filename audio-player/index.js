@@ -7,18 +7,24 @@ let isPlay = false;
 const imageBackground = document.querySelector(".image__beyonce");
 const imageTrack = document.querySelector(".beyonce");
 const imageList = ["./image/1.png", "./image/2.png"];
+const timeLine = document.querySelector(".time__line ");
+let timeLineInterval;
+audio.src = trackList[playNum];
 
 function playAudio() {
   if (isPlay) {
     playButton.classList.add("pause");
     pauseAudio();
     isPlay = false;
+    clearInterval(timeLineInterval);
   } else {
     playButton.classList.remove("pause");
-    audio.src = trackList[playNum];
-    audio.currentTime = 0;
+
     audio.play();
     isPlay = true;
+    timeLineInterval = setInterval(() => {
+      updateProgress();
+    }, 1000);
   }
 }
 function pauseAudio() {
@@ -36,6 +42,8 @@ function playNext() {
   } else {
     playNum = playNum + 1;
   }
+  audio.src = trackList[playNum];
+  audio.currentTime = 0;
   imageTrack.src = imageList[playNum];
   imageBackground.src = imageList[playNum];
   playAudio();
@@ -48,6 +56,8 @@ function playPrev() {
   } else {
     playNum = playNum - 1;
   }
+  audio.src = trackList[playNum];
+  audio.currentTime = 0;
   imageTrack.src = imageList[playNum];
   imageBackground.src = imageList[playNum];
   playAudio();
@@ -63,3 +73,11 @@ playNextButton.addEventListener("click", () => {
 playPrevButton.addEventListener("click", () => {
   playPrev();
 });
+
+function updateProgress() {
+  console.log(audio.currentTime, audio.duration);
+  const progress = audio.currentTime / audio.duration;
+  timeLine.style.paddingLeft = Math.floor(progress * 1000) / 10 + "%";
+}
+
+function updateCurrentPosition(event) {}
