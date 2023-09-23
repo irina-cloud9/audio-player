@@ -39,15 +39,14 @@ function playNext() {
 
 function playPrev() {
   isPlay = false;
-  if (playNum === trackList.length) {
-    playNum = 0;
+  if (playNum === 0) {
+    playNum = trackList.length - 1;
   } else {
-    playNum = playNum + 1;
+    playNum = playNum - 1;
   }
 
   playAudio();
 }
-playPrev();
 
 const playPrevButton = document.querySelector(".wrapper__image__pravo");
 const playNextButton = document.querySelector(".wrapper__image__levo");
@@ -56,4 +55,6 @@ playNextButton.addEventListener("click", () => {
   playNext();
 });
 
-playPrevButton.addEventListener("click", () => {});
+playPrevButton.addEventListener("click", () => {
+  playPrev();
+});
