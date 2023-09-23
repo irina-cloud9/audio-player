@@ -25,7 +25,7 @@ const timeCurrent = document.querySelector(".time");
 setTimeout(() => {
   timeSong.innerHTML = timeCalc(audio.duration);
   timeCurrent.innerHTML = timeCalc(0);
-}, 100);
+}, 1000);
 
 function playAudio() {
   if (isPlay) {
