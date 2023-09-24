@@ -11,6 +11,11 @@ const timeLine = document.querySelector(".time__line");
 let timeLineInterval;
 audio.src = trackList[playNum];
 
+const avtor = document.querySelector(".avtor");
+const song = document.querySelector(".song");
+const tooAvtors = ["Beyonce", "Dua Lipa"];
+const tooSong = ["Don't Hurt Yourself", "Don't Start Now"];
+
 function timeCalc(sec) {
   const minutes = parseInt(sec / 60);
   const seconds = Math.round(sec % 60);
@@ -59,6 +64,8 @@ function playNext() {
   } else {
     playNum = playNum + 1;
   }
+  song.innerHTML = tooSong[playNum];
+  avtor.innerHTML = tooAvtors[playNum];
   audio.src = trackList[playNum];
   audio.currentTime = 0;
   imageTrack.src = imageList[playNum];
@@ -66,7 +73,7 @@ function playNext() {
   setTimeout(() => {
     timeSong.innerHTML = timeCalc(audio.duration);
     timeCurrent.innerHTML = timeCalc(0);
-  }, 100);
+  }, 500);
   playAudio();
 }
 
@@ -77,6 +84,8 @@ function playPrev() {
   } else {
     playNum = playNum - 1;
   }
+  song.innerHTML = tooSong[playNum];
+  avtor.innerHTML = tooAvtors[playNum];
   audio.src = trackList[playNum];
   audio.currentTime = 0;
   imageTrack.src = imageList[playNum];
@@ -84,7 +93,7 @@ function playPrev() {
   setTimeout(() => {
     timeSong.innerHTML = timeCalc(audio.duration);
     timeCurrent.innerHTML = timeCalc(0);
-  }, 100);
+  }, 500);
   playAudio();
 }
 
